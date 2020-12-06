@@ -1,0 +1,459 @@
+package com.sample
+import javax.swing.*;
+import java.awt.*;
+
+import com.sample.Drools.*;
+
+ 
+rule "1.init"
+	when
+	then
+		String question = "Classic or modern?";
+		String[] answers = {"I need an escape from Tinder.", "I'm a modern girl."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "2.classic"
+	when
+		Question(question.equals("Classic or modern?"), answer.equals("I need an escape from Tinder."));
+	then
+		String question = "Black and white?";
+		String[] answers = {"Definitely, love oldies!", "Let's go more modern."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "3.black"
+	when
+		Question(question.equals("Black and white?"), answer.equals("Definitely, love oldies!"));
+	then
+		String question = "A tale of friends or strangers?";
+		String[] answers = {"Strangers.", "Friends."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "4.strangers"
+	when
+		Question(question.equals("Black and white?"), answer.equals("Strangers."));
+	then
+		String question = "Do they get together in the end";
+		String[] answers = {"Please say yes!", "NBD."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "5.Please say yes"
+	when
+		Question(question.equals("Do they get together in the end"), answer.equals("Please say yes!"));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Breakfast at Tiffany's";
+		insert(new Question(question, answer));
+end
+
+rule "6.NBD."
+	when
+		Question(question.equals("Do they get together in the end"), answer.equals("NBD."));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Roman Holiday";
+		insert(new Question(question, answer));
+end
+
+rule "7.Friends"
+	when
+		Question(question.equals("A tale of friends or strangers?"), answer.equals("Friends."));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Terms of Endearment";
+		insert(new Question(question, answer));
+end
+
+
+rule "8.white"
+	when
+		Question(question.equals("Black and white?"), answer.equals("Let's go more modern."));
+	then
+		String question = "Based on a novel?";
+		String[] answers = {"Not so much.", "I'm kind of a book worm."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "9.not so much"
+	when
+		Question(question.equals("Based on a novel?"), answer.equals("Not so much."));
+	then
+		String question = "Your thoughts on the 'gos?";
+		String[] answers = {"Let's go earlier.", "Greatest years of my life."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "10.earlier"
+	when
+		Question(question.equals("Your thoughts on the 'gos?"), answer.equals("Let's go earlier."));
+	then
+		String question = "Ah, period piece it is. Biography?";
+		String[] answers = {"Pass.", "Ok!"};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "11.Pass"
+	when
+		Question(question.equals("Ah, period piece it is. Biography?"), answer.equals("Pass."));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Shakespeare In Love";
+		insert(new Question(question, answer));
+end
+
+rule "12.ok!"
+	when
+		Question(question.equals("Ah, period piece it is. Biography?"), answer.equals("Ok!"));
+	then
+		String question = "Art or film?";
+		String[] answers = {"Art!", "Film!"};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "13.Art"
+	when
+		Question(question.equals("Art or film?"), answer.equals("Art!"));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Frida";
+		insert(new Question(question, answer));
+end
+
+rule "14.Film"
+	when
+		Question(question.equals("Art or film?"), answer.equals("Film!"));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Marilyn";
+		insert(new Question(question, answer));
+end
+
+rule "15.greatest year of life"
+	when
+		Question(question.equals("Your thoughts on the 'gos?"), answer.equals("Greatest years of my life."));
+	then
+		String question = "Deep passion or innocent love?";
+		String[] answers = {"Deep passion!", "Innocent love?"};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "16.deep passion"
+	when
+		Question(question.equals("Deep passion or innocent love?"), answer.equals("Deep passion!"));
+	then
+		String question = "Do you like ghosts?";
+		String[] answers = {"Bring it!", "No."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "17.Ghosts"
+	when
+		Question(question.equals("Do you like ghosts?"), answer.equals("Bring it!"));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Ghost";
+		insert(new Question(question, answer));
+end
+
+rule "18.No ghosts"
+	when
+		Question(question.equals("Do you like ghosts?"), answer.equals("No."));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Jerry Maguire";
+		insert(new Question(question, answer));
+end
+
+rule "19.deep passion"
+	when
+		Question(question.equals("Deep passion or innocent love?"), answer.equals("Innocent love?"));
+	then
+		String question = "Small town or big city?";
+		String[] answers = {"Big city.", "Small town."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "20.Big city"
+	when
+		Question(question.equals("Small town or big city?"), answer.equals("Big city."));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Clueless";
+		insert(new Question(question, answer));
+end
+
+rule "21.Small town"
+	when
+		Question(question.equals("Small town or big city?"), answer.equals("Small town."));
+	then
+		String question = "A love that lasts decades?";
+		String[] answers = {"Let's cut to the chase", "Love should last forever!"};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "22. Cut to the chase"
+	when
+		Question(question.equals("A love that lasts decades?"), answer.equals("Let's cut to the chase"));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "What's Eating Gilbert Grape?";
+		insert(new Question(question, answer));
+end
+
+rule "23. love forever"
+	when
+		Question(question.equals("A love that lasts decades?"), answer.equals("Love should last forever!"));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Forrest Gump";
+		insert(new Question(question, answer));
+end
+
+rule "24. based on novel"
+	when
+		Question(question.equals("Based on novel?"), answer.equals("I'm kind of a book worm."));
+	then
+		String question = "New or old?";
+		String[] answers = {"New.", "Old."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "25.new"
+	when
+		Question(question.equals("New or old?"), answer.equals("New."));
+	then
+		String question = "Based in the U.S. or Mexico?";
+		String[] answers = {"U.S.", "Viva Mexico!"};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "26. U.S."
+	when
+		Question(question.equals("Based in the U.S. or Mexico?"), answer.equals("U.S."));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "The Great Gatsby (1974)";
+		insert(new Question(question, answer));
+end
+
+rule "27. Mexico"
+	when
+		Question(question.equals("Based in the U.S. or Mexico?"), answer.equals("Viva Mexico!"));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Like Water for Chocolate";
+		insert(new Question(question, answer));
+end
+
+rule "28.old"
+	when
+		Question(question.equals("New or old?"), answer.equals("Old."));
+	then
+		String question = "Author Bronte or Austen?";
+		String[] answers = {"I prefer Russian literature.", "Emily Bronte is my queen.", "Jane Austen all the way."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "29. russian"
+	when
+		Question(question.equals("Author Bronte or Austen?"), answer.equals("I prefer Russian literature."));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Anna Kerenina";
+		insert(new Question(question, answer));
+end
+
+rule "30.Bronte"
+	when
+		Question(question.equals("Author Bronte or Austen?"), answer.equals("Emily Bronte is my queen."));
+	then
+		String question = "Like love triangles?";
+		String[] answers = {"I LOVE love triangles.", "Pass."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "31. Love Triangles"
+	when
+		Question(question.equals("Like love triangles?"), answer.equals("I LOVE love triangles."));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Wuthering Heighs";
+		insert(new Question(question, answer));
+end
+
+rule "32. no to Love Triangles"
+	when
+		Question(question.equals("Like love triangles?"), answer.equals("Pass."));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Jane Eyre";
+		insert(new Question(question, answer));
+end
+
+rule "33.Austen"
+	when
+		Question(question.equals("Author Bronte or Austen?"), answer.equals("Jane Austen all the way."));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Mansfield Park";
+		insert(new Question(question, answer));
+end
+
+rule "34.modern girl"
+	when
+		Question(question.equals("Classic or modern?"), answer.equals("I'm a modern girl."));
+	then
+		String question = "Comedy or drama?";
+		String[] answers = {"I need a good laugh", "How about some action?", "Let's add some drama"};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "35.good laugh"
+	when
+		Question(question.equals("Comedy or drama?"), answer.equals("I need a good laugh"));
+	then
+		String question = "Like adventures?";
+		String[] answers = {"Preffer a different storyline.", "Who doesn't!?"};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		insert(new Question(question, answers[pane]));
+end
+
+rule "36. not adventures"
+	when
+		Question(question.equals("Like adventures?"), answer.equals("Preffer a different storyline."));
+	then
+		String question = "Fish out of water?";
+		String[] answers = {"Ooo... tell me more!", "Who doesn't!?"};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		
+		insert(new Question(question, answers[pane]));
+end
+
+rule "37. something more"
+	when
+		Question(question.equals("Fish out of water?"), answer.equals("Ooo... tell me more!"));
+	then
+		String question = "Take me to Queens!";
+		String[] answers = {"Yes!!", "Huh?"};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		
+		insert(new Question(question, answers[pane]));
+end
+
+rule "38.Queens"
+	when
+		Question(question.equals("Take me to Queens!"), answer.equals("Yes!!"));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Coming to America";
+		insert(new Question(question, answer));
+end
+
+rule "39.not Queens"
+	when
+		Question(question.equals("Take me to Queens!"), answer.equals("Huh?"));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Spanglish";
+		insert(new Question(question, answer));
+end
+
+rule "40. No fish out of water"
+	when
+		Question(question.equals("Fish out of water?"), answer.equals("No."));
+	then
+		String question = "Pining for Christmas already?";
+		String[] answers = {"Bring on the mistletoe!", "Not so much"};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		
+		insert(new Question(question, answers[pane]));
+end
+
+rule "41. Christmas"
+	when
+		Question(question.equals("Pining for Christmas already?"), answer.equals("Bring on the mistletoe!"));
+	then
+		String question = "Single and ready to mingle?";
+		String[] answers = {"I prefer dating.", "Sure!"};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		
+		insert(new Question(question, answers[pane]));
+end
+
+rule "42.Dating"
+	when
+		Question(question.equals("Single and ready to mingle?"), answer.equals("I prefer dating."));
+	then
+		String question = "Groundhog Day theme?";
+		String[] answers = {"Okey.", "No thanks."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		
+		insert(new Question(question, answers[pane]));
+end
+
+rule "43.Groundhog theme"
+	when
+		Question(question.equals("Groundhog Day theme?"), answer.equals("Okey."));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "12 Dates of Christmas";
+		insert(new Question(question, answer));
+end
+
+rule "44. No Groundhog theme"
+	when
+		Question(question.equals("Groundhog Day theme?"), answer.equals("No thanks."));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Love Actually";
+		insert(new Question(question, answer));
+end
+
+rule "45.single and ready to mingle"
+	when
+		Question(question.equals("Single and ready to mingle?"), answer.equals("Sure!"));
+	then
+		String question = "Perfect romance movie for you ";
+		String answer = "Marry Me for Christmas";
+		insert(new Question(question, answer));
+end
+
+rule "37. not adventures"
+	when
+		Question(question.equals("Like adventures?"), answer.equals("Preffer a different storyline."));
+	then
+		String question = "Quest for love?";
+		String[] answers = {"Yes.", "Nah."};
+		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
+		
+		insert(new Question(question, answers[pane]));
+end
+
+rule "final"
+	when
+		q : Question(question.equals("Perfect romance movie for you "));
+	then
+		JOptionPane.showMessageDialog(null, q.answer, q.question, JOptionPane.INFORMATION_MESSAGE);
+end
+
+

@@ -467,131 +467,7 @@ rule "48.Garner"
 		insert(new Question(question, answer));
 end	
 
-rule "49. not adventures"
-	when
-		Question(question.equals("Like adventures?"), answer.equals("Preffer a different storyline."));
-	then
-		String question = "Quest for love?";
-		String[] answers = {"Yes.", "Nah."};
-		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
-		
-		insert(new Question(question, answers[pane]));
-end
-
-rule "50. quest for love"
-	when
-		Question(question.equals("Quest for love?"), answer.equals("Yes."));
-	then
-		String question = "Tropical paradise?";
-		String[] answers = {"Dreaming of Hawaii.", "I'm a fan of winter."};
-		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
-		insert(new Question(question, answers[pane]));
-end
-
-rule "51.Hawaii"
-	when
-		Question(question.equals("Tropical paradise?"), answer.equals("Dreaming of Hawaii."));
-	then
-		String question = "Perfect romance movie for you ";
-		String answer = "50 First Dates";
-		insert(new Question(question, answer));
-end	
-
-rule "52.Winter"
-	when
-		Question(question.equals("Tropical paradise?"), answer.equals("I'm a fan of winter."));
-	then
-		String question = "Perfect romance movie for you ";
-		String answer = "Bridget Jones's Diary";
-		insert(new Question(question, answer));
-end	
-
-rule "53. not quest for love"
-	when
-		Question(question.equals("Quest for love?"), answer.equals("Nah."));
-	then
-		String question = "Are the characters dating someone?";
-		String[] answers = {"No to cheaters!", "Well..."};
-		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
-		insert(new Question(question, answers[pane]));
-end
-
-rule "54. no to cheaters"
-	when
-		Question(question.equals("Are the characters dating someone?"), answer.equals("No to cheaters!"));
-	then
-		String question = "Sparked by a note?";
-		String[] answers = {"Yes!", "No."};
-		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
-		insert(new Question(question, answers[pane]));
-end
-
-rule "55.Sparked by note"
-	when
-		Question(question.equals("Sparked by a note?"), answer.equals("Yes!"));
-	then
-		String question = "Perfect romance movie for you ";
-		String answer = "The Love Letter";
-		insert(new Question(question, answer));
-end	
-
-rule "56. No for Sparked by note"
-	when
-		Question(question.equals("Sparked by a note?"), answer.equals("No."));
-	then
-		String question = "Perfect romance movie for you ";
-		String answer = "Serendipity";
-		insert(new Question(question, answer));
-end	
-
-rule "57. well.."
-	when
-		Question(question.equals("Are the characters dating someone?"), answer.equals("Well..."));
-	then
-		String question = "Will he propose?";
-		String[] answers = {"Umm.. he already did?", "Nope."};
-		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
-		insert(new Question(question, answers[pane]));
-end
-
-rule "58. already proposed"
-	when
-		Question(question.equals("Will he propose?"), answer.equals("Umm.. he already did?"));
-	then
-		String question = "Perfect romance movie for you ";
-		String answer = "My Best Friend's Wedding";
-		insert(new Question(question, answer));
-end	
-
-rule "59. without propose"
-	when
-		Question(question.equals("Will he propose?"), answer.equals("Nope."));
-	then
-		String question = "Do you like beer?";
-		String[] answers = {"Yes!!", "Nope."};
-		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
-		insert(new Question(question, answers[pane]));
-end
-
-rule "60.like beer"
-	when
-		Question(question.equals("Do you like beer?"), answer.equals("Yes!!"));
-	then
-		String question = "Perfect romance movie for you ";
-		String answer = "Drinking Buddles";
-		insert(new Question(question, answer));
-end	
-
-rule "61.not like beer"
-	when
-		Question(question.equals("Do you like beer?"), answer.equals("Nope."));
-	then
-		String question = "Perfect romance movie for you ";
-		String answer = "Leap Year";
-		insert(new Question(question, answer));
-end	
-
-rule "62.adventures"
+rule "49.adventures"
 	when
 		Question(question.equals("Like adventures?"), answer.equals("Who doesn't!?"));
 	then
@@ -600,7 +476,7 @@ rule "62.adventures"
 		insert(new Question(question, answer));
 end
 
-rule "63.some action"
+rule "50.some action"
 	when
 		Question(question.equals("Comedy or drama?"), answer.equals("How about some action?"));
 	then
@@ -610,7 +486,7 @@ rule "63.some action"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "64.thrilling twist"
+rule "51.thrilling twist"
 	when
 		Question(question.equals("What kind of action?"), answer.equals("A thrilling twist!"));
 	then
@@ -619,7 +495,7 @@ rule "64.thrilling twist"
 		insert(new Question(question, answer));
 end
 
-rule "65.Risque"
+rule "52.Risque"
 	when
 		Question(question.equals("What kind of action?"), answer.equals("Love a little risque!"));
 	then
@@ -629,7 +505,7 @@ rule "65.Risque"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "66.One couple"
+rule "53.One couple"
 	when
 		Question(question.equals("One couple or multicuple?"), answer.equals("One."));
 	then
@@ -638,7 +514,7 @@ rule "66.One couple"
 		insert(new Question(question, answer));
 end
 
-rule "67.more"
+rule "54.more"
 	when
 		Question(question.equals("One couple or multicuple?"), answer.equals("The more, the merrier!"));
 	then
@@ -647,7 +523,7 @@ rule "67.more"
 		insert(new Question(question, answer));
 end
 
-rule "68.drama"
+rule "55.drama"
 	when
 		Question(question.equals("Comedy or drama?"), answer.equals("Let's add some drama"));
 	then
@@ -657,7 +533,7 @@ rule "68.drama"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "69.stable"
+rule "56.stable"
 	when
 		Question(question.equals("Is your life at a crossroads?"), answer.equals("My life is pretty stable."));
 	then
@@ -667,7 +543,7 @@ rule "69.stable"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "70.sure for stable"
+rule "57.sure for stable"
 	when
 		Question(question.equals("Are youe sure?"), answer.equals("Yes!"));
 	then
@@ -677,7 +553,7 @@ rule "70.sure for stable"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "71.Friends"
+rule "58.Friends"
 	when
 		Question(question.equals("You get one lifeline. Who do you call?"), answer.equals("Friends!"));
 	then
@@ -686,7 +562,7 @@ rule "71.Friends"
 		insert(new Question(question, answer));
 end
 
-rule "72.Bros"
+rule "59.Bros"
 	when
 		Question(question.equals("You get one lifeline. Who do you call?"), answer.equals("Bros."));
 	then
@@ -695,7 +571,7 @@ rule "72.Bros"
 		insert(new Question(question, answer));
 end
 
-rule "73.maybe not sure"
+rule "60.maybe not sure"
 	when
 		Question(question.equals("Are youe sure?"), answer.equals("Ok, maybe not..."));
 	then
@@ -705,7 +581,7 @@ rule "73.maybe not sure"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "74.family in the way"
+rule "61.family in the way"
 	when
 		Question(question.equals("Is family getting in the way?"), answer.equals("When do they not?"));
 	then
@@ -715,7 +591,7 @@ rule "74.family in the way"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "75.siblings"
+rule "62.siblings"
 	when
 		Question(question.equals("A story of sibling?"), answer.equals("Yes."));
 	then
@@ -725,7 +601,7 @@ rule "75.siblings"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "76.Brother"
+rule "63.Brother"
 	when
 		Question(question.equals("Brother or sister?"), answer.equals("Brother."));
 	then
@@ -734,7 +610,7 @@ rule "76.Brother"
 		insert(new Question(question, answer));
 end
 
-rule "77.Sister"
+rule "64.Sister"
 	when
 		Question(question.equals("Brother or sister?"), answer.equals("Sister."));
 	then
@@ -744,7 +620,7 @@ rule "77.Sister"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "78. no married"
+rule "65. no married"
 	when
 		Question(question.equals("Someone getting married?"), answer.equals("No way!"));
 	then
@@ -753,7 +629,7 @@ rule "78. no married"
 		insert(new Question(question, answer));
 end
 
-rule "79.marriage"
+rule "66.marriage"
 	when
 		Question(question.equals("Someone getting married?"), answer.equals("I love weddings!"));
 	then
@@ -762,7 +638,7 @@ rule "79.marriage"
 		insert(new Question(question, answer));
 end
 
-rule "80.parents"
+rule "67.parents"
 	when
 		Question(question.equals("A story of sibling?"), answer.equals("Parents are crazy too!"));
 	then
@@ -772,7 +648,7 @@ rule "80.parents"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "81.my parents"
+rule "68.my parents"
 	when
 		Question(question.equals("Your parents?"), answer.equals("Oh yeah."));
 	then
@@ -781,7 +657,7 @@ rule "81.my parents"
 		insert(new Question(question, answer));
 end
 
-rule "81.in-law"
+rule "69.in-law"
 	when
 		Question(question.equals("Your parents?"), answer.equals("In-laws."));
 	then
@@ -790,7 +666,7 @@ rule "81.in-law"
 		insert(new Question(question, answer));
 end
 
-rule "82.family in relationships"
+rule "70.family in relationships"
 	when
 		Question(question.equals("Is family getting in the way?"), answer.equals("Just my relationships."));
 	then
@@ -800,7 +676,7 @@ rule "82.family in relationships"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "83.work out"
+rule "71.work out"
 	when
 		Question(question.equals("Do they usually work out?"), answer.equals("Always!"));
 	then
@@ -809,7 +685,7 @@ rule "83.work out"
 		insert(new Question(question, answer));
 end
 
-rule "84.handle break-up"
+rule "72.handle break-up"
 	when
 		Question(question.equals("Do they usually work out?"), answer.equals("I can handle a break-up."));
 	then
@@ -818,7 +694,7 @@ rule "84.handle break-up"
 		insert(new Question(question, answer));
 end
 
-rule "85.not stable"
+rule "73.not stable"
 	when
 		Question(question.equals("Is your life at a crossroads?"), answer.equals("When is it not?"));
 	then
@@ -828,7 +704,7 @@ rule "85.not stable"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "86.sci-fi"
+rule "74.sci-fi"
 	when
 		Question(question.equals("Like Sci-Fi?"), answer.equals("Sure!"));
 	then
@@ -838,7 +714,7 @@ rule "86.sci-fi"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "87.present"
+rule "75.present"
 	when
 		Question(question.equals("Present or alternate universe?"), answer.equals("Present."));
 	then
@@ -848,7 +724,7 @@ rule "87.present"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "88. no world-ending"
+rule "76. no world-ending"
 	when
 		Question(question.equals("Is the world ending?"), answer.equals("Not yet!"));
 	then
@@ -858,7 +734,7 @@ rule "88. no world-ending"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "89.Duplass"
+rule "77.Duplass"
 	when
 		Question(question.equals("Fan of Duplass Brothers?"), answer.equals("Love them!"));
 	then
@@ -867,7 +743,7 @@ rule "89.Duplass"
 		insert(new Question(question, answer));
 end
 
-rule "90.not Duplass"
+rule "78.not Duplass"
 	when
 		Question(question.equals("Fan of Duplass Brothers?"), answer.equals("Who?"));
 	then
@@ -876,7 +752,7 @@ rule "90.not Duplass"
 		insert(new Question(question, answer));
 end
 
-rule "91.true world-ending"
+rule "79.true world-ending"
 	when
 		Question(question.equals("Is the world ending?"), answer.equals("Might as ell be."));
 	then
@@ -885,7 +761,7 @@ rule "91.true world-ending"
 		insert(new Question(question, answer));
 end
 
-rule "92.alternate"
+rule "80.alternate"
 	when
 		Question(question.equals("Present or alternate universe?"), answer.equals("Let's get outta here!"));
 	then
@@ -895,7 +771,7 @@ rule "92.alternate"
 		insert(new Question(question, answers[pane]));
 	end
 	
-rule "93.not fan of christmas"
+rule "81.not fan of christmas"
 	when
 		Question(question.equals("Fan of Christmas?"), answer.equals("Nah."));
 	then
@@ -923,7 +799,7 @@ rule "95.no sci-fi"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "96. not back to collage"
+rule "82. not back to collage"
 	when
 		Question(question.equals("Want to relive college?"), answer.equals("I'd rather not."));
 	then
@@ -933,7 +809,7 @@ rule "96. not back to collage"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "97. young love"
+rule "83. young love"
 	when
 		Question(question.equals("Fan of young love?"), answer.equals("I'm interested!"));
 	then
@@ -943,7 +819,7 @@ rule "97. young love"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "98.date for prom"
+rule "84.date for prom"
 	when
 		Question(question.equals("Had a date for prom?"), answer.equals("Oh yeah!"));
 	then
@@ -952,7 +828,7 @@ rule "98.date for prom"
 		insert(new Question(question, answer));
 end	
 
-rule "99. not date for prom"
+rule "85. not date for prom"
 	when
 		Question(question.equals("Had a date for prom?"), answer.equals("I'd rather forget."));
 	then
@@ -962,7 +838,7 @@ rule "99. not date for prom"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "100.high school full of angst"
+rule "86.high school full of angst"
 	when
 		Question(question.equals("Had a high school sweetheart?"), answer.equals("High school was full of angst."));
 	then
@@ -971,7 +847,7 @@ rule "100.high school full of angst"
 		insert(new Question(question, answer));
 end	
 
-rule "101.high school - the best love"
+rule "87.high school - the best love"
 	when
 		Question(question.equals("Had a high school sweetheart?"), answer.equals("It was the best kind of love story."));
 	then
@@ -980,7 +856,7 @@ rule "101.high school - the best love"
 		insert(new Question(question, answer));
 end	
 
-rule "102. not young love"
+rule "88. not young love"
 	when
 		Question(question.equals("Fan of young love?"), answer.equals("Prefer older."));
 	then
@@ -990,7 +866,7 @@ rule "102. not young love"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "103.Benjamins"
+rule "89.Benjamins"
 	when
 		Question(question.equals("Rich or middle class?"), answer.equals("Show me the Benjamins."));
 	then
@@ -1000,7 +876,7 @@ rule "103.Benjamins"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "104. got moves"
+rule "90. got moves"
 	when
 		Question(question.equals("Fan of ballroom dancing?"), answer.equals("I've got moves."));
 	then
@@ -1009,7 +885,7 @@ rule "104. got moves"
 		insert(new Question(question, answer));
 end
 
-rule "105. two left feet"
+rule "91. two left feet"
 	when
 		Question(question.equals("Fan of ballroom dancing?"), answer.equals("I have two left feet."));
 	then
@@ -1018,7 +894,7 @@ rule "105. two left feet"
 		insert(new Question(question, answer));
 end
 
-rule "106.Joe"
+rule "92.Joe"
 	when
 		Question(question.equals("Rich or middle class?"), answer.equals("Partial to the average Joe."));
 	then
@@ -1028,7 +904,7 @@ rule "106.Joe"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "106. Hope"
+rule "93. Hope"
 	when
 		Question(question.equals("Hoping for love after a break-up?"), answer.equals("Yes! We all need hope!"));
 	then
@@ -1037,7 +913,7 @@ rule "106. Hope"
 		insert(new Question(question, answer));
 end
 
-rule "107. Hopeless"
+rule "94. Hopeless"
 	when
 		Question(question.equals("Hoping for love after a break-up?"), answer.equals("Less heartache."));
 	then
@@ -1046,7 +922,7 @@ rule "107. Hopeless"
 		insert(new Question(question, answer));
 end
 
-rule "108.back to collage"
+rule "95.back to collage"
 	when
 		Question(question.equals("Want to relive college?"), answer.equals("Take me back!"));
 	then
@@ -1056,7 +932,7 @@ rule "108.back to collage"
 		insert(new Question(question, answers[pane]));
 end
 
-rule "108. Happy endings"
+rule "96. Happy endings"
 	when
 		Question(question.equals("Happy endings or college drama?"), answer.equals("Happy endings!"));
 	then
@@ -1065,7 +941,7 @@ rule "108. Happy endings"
 		insert(new Question(question, answer));
 end
 
-rule "109. prefer drama"
+rule "97. prefer drama"
 	when
 		Question(question.equals("Happy endings or college drama?"), answer.equals("Drama."));
 	then
@@ -1074,7 +950,7 @@ rule "109. prefer drama"
 		insert(new Question(question, answer));
 end
 
-rule "110.final"
+rule "98.final"
 	when
 		q : Question(question.equals("Perfect romance movie for you "));
 	then

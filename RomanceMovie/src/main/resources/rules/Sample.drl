@@ -2,7 +2,6 @@ package com.sample
 import javax.swing.*;
 
 import com.sample.Drools.*;
-
  
 rule "1.init"
 	when
@@ -35,7 +34,7 @@ end
 
 rule "4.strangers"
 	when
-		Question(question.equals("Black and white?"), answer.equals("Strangers."));
+		Question(question.equals("A tale of friends or strangers?"), answer.equals("Strangers."));
 	then
 		String question = "Do they get together in the end";
 		String[] answers = {"Please say yes!", "NBD."};
@@ -225,7 +224,7 @@ end
 
 rule "24. based on novel"
 	when
-		Question(question.equals("Based on novel?"), answer.equals("I'm kind of a book worm."));
+		Question(question.equals("Based on a novel?"), answer.equals("I'm kind of a book worm."));
 	then
 		String question = "New or old?";
 		String[] answers = {"New.", "Old."};
@@ -342,7 +341,7 @@ rule "36. not adventures"
 		Question(question.equals("Like adventures?"), answer.equals("Preffer a different storyline."));
 	then
 		String question = "Fish out of water?";
-		String[] answers = {"Ooo... tell me more!", "Who doesn't!?"};
+		String[] answers = {"Ooo... tell me more!", "No."};
 		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
 		
 		insert(new Question(question, answers[pane]));
@@ -382,7 +381,7 @@ rule "40. No fish out of water"
 		Question(question.equals("Fish out of water?"), answer.equals("No."));
 	then
 		String question = "Pining for Christmas already?";
-		String[] answers = {"Bring on the mistletoe!", "Not so much"};
+		String[] answers = {"Bring on the mistletoe!", "Not so much."};
 		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
 		
 		insert(new Question(question, answers[pane]));
@@ -547,7 +546,7 @@ rule "57.sure for stable"
 		Question(question.equals("Are youe sure?"), answer.equals("Yes!"));
 	then
 		String question = "You get one lifeline. Who do you call?";
-		String[] answers = {"Fiends!", "Bros."};
+		String[] answers = {"Friends!", "Bros."};
 		int pane = JOptionPane.showOptionDialog(null, question, "Let's find a perfect romance movie for you. Answer the questions", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, answers, answers[0]);
 		insert(new Question(question, answers[pane]));
 end
@@ -753,7 +752,7 @@ end
 
 rule "79.true world-ending"
 	when
-		Question(question.equals("Is the world ending?"), answer.equals("Might as ell be."));
+		Question(question.equals("Is the world ending?"), answer.equals("Might as well be."));
 	then
 		String question = "Perfect romance movie for you ";
 		String answer = "Seeking a Friend for the End of the World";
